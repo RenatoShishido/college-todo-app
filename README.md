@@ -1,19 +1,23 @@
 # progweb-taskflow
-Desenvolvimento de um TODO-LIST basico com um backend em nodejs e um frontend em javascript, css e html.
+## Introdução
+Este software foi elaborado pelo professor da disciplina de progweb onde consiste em uma agenda de tarefas básica
+para o cotidiano. O qual este tera tarefas e agendas que é um agrupamento de varias tarefas de modo
+que cada uma tenha o seu status de não iniciado, em andamento e finalizado, pelas cores verde, amarelo e vermelho
+respectivamente. A bolinha determina se é uma agenda.
 
 ## Frontend
-A implementacao com a comunicacao com o backend foi usado o axios para requisicoes http. Foi divido em modulos tambem,
-com um pasta de services para o front que ira gerar todos os servicos para comunicacao com o backend.
+A implementção da comunicação com o backend foi usado o axios para requisições http. Ela foi divida em modulos,
+o qual existe uma pasta de serivces para a o facil entendimento de gerenciamento de todos os endpoints da api.
 
 
 ## Backend
 
-### Executar em modo desenvolvimento com o nodemon
+### Execução do projeto em desenvolvimento ( __Nodemon__ )
 ```
   npm run dev 
 ```
 
-### Executar em modo server com o node
+### Execução do projeto
 ```
   npm start 
   
@@ -22,16 +26,36 @@ com um pasta de services para o front que ira gerar todos os servicos para comun
   npm run start
 ```
 
-### Subindo o mongodb com docker (Este comando ira fazer com que suba um docker com o portainer, mongo-express-interface, mongodb)
-#### Para acessar o mongo-express-interface ele estara rodando na porta 8081 e o portainer na porta 9000.
-OBS: Tem que estar dentro do pasta!
+### Execução de um docker com todos os containers essenciais para o modo em desenvolvimento.
+#### Este comando sobe três containers o mongo-express-interface, o portainer e o portainer.
+__Os três estão rodando nas portas 8081 e 9000 respectivamente__ 
+__OBS: Tem que estar dentro do pasta!__
 ```
   docker-compose up -d 
 ```
+__OBS: Tera que mudar o host do arquivo!!__
+```
+  mongoose.connect(`mongodb://root:passwordRoot@173.40.0.4:27017`, { useUnifiedTopology: true, useNewUrlParser: true })
+```
 
-### Caso tenha o mongodb instalado na maquina utilize ele, porem tera que mudar a conexao com o banco de dados.
-Para mudar a conexao com o banco de dados voce ira mudar o login e a senha junto com o host e a port no arquivo
-backend/api/db/db.js
+### Caso tenha o mongodb instalado dentro da sua maquina utilize ele, porem tera que mudar a conexão com o banco de dados.
+Para mudar a conexão com o banco de dados voce ira mudar o login e a senha junto com o host e a port no arquivo
 ```
   mongoose.connect(`mongodb://LOGIN:SENHA@HOST:PORT`, { useUnifiedTopology: true, useNewUrlParser: true })
 ```
+
+## Acompanhamento
+
+### Frontend
+- [X] Implementação das 3 telas superficiais (Login, Criar conta, Esqueci minha senha )
+- [] Implementação de uma navBar
+- [] Implementação de um navDrag/sideBar
+- [] Implementação da das telas do navDrag (Todos, Não inciado, Em andamento, Finalizado, Listas)
+- [] Implementação das services de comunicação com a api
+
+### Backend
+- [] Implementação de uma busca por Agenda
+- [X] Construção de uma api com crud
+- [] Construção de uma authenticação ( Sessão )
+- [] Implementação de um serviço para o esqueci minha senha
+- [] Construção dos modelos do banco de dados
