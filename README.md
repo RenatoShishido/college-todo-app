@@ -6,11 +6,12 @@ que cada uma tenha o seu status de não iniciado, em andamento e finalizado, pel
 respectivamente. A bolinha determina se é uma agenda.
 
 ## Frontend
-A implementção da comunicação com o backend foi usado o axios para requisições http. Ela foi divida em modulos,
+A implementação da comunicação com o backend foi usado o axios para requisições http. Ela foi divida em modulos,
 o qual existe uma pasta de serivces para a o facil entendimento de gerenciamento de todos os endpoints da api.
 
 
 ## Backend
+A implementação foi feita em nodejs.
 
 ### Execução do projeto em desenvolvimento ( __Nodemon__ )
 ```
@@ -28,7 +29,7 @@ o qual existe uma pasta de serivces para a o facil entendimento de gerenciamento
 
 ### Execução de um docker com todos os containers essenciais para o modo em desenvolvimento.
 #### Este comando sobe três containers o mongo-express-interface, o portainer e o portainer.
-__Os três estão rodando nas portas 8081 e 9000 respectivamente__ 
+Os três estão rodando nas portas 8081 e 9000 respectivamente
 __OBS: Tem que estar dentro do pasta!__
 ```
   docker-compose up -d 
@@ -48,14 +49,14 @@ Para mudar a conexão com o banco de dados voce ira mudar o login e a senha junt
 
 ### Frontend
 - [X] Implementação das 3 telas superficiais (Login, Criar conta, Esqueci minha senha )
-- [] Implementação de uma navBar
-- [] Implementação de um navDrag/sideBar
-- [] Implementação da das telas do navDrag (Todos, Não inciado, Em andamento, Finalizado, Listas)
-- [] Implementação das services de comunicação com a api
+- [ ] Implementação de uma navBar
+- [ ] Implementação de um navDrag/sideBar
+- [ ] Implementação da das telas do navDrag (Todos, Não inciado, Em andamento, Finalizado, Listas)
+- [ ] Implementação das services de comunicação com a api
 
 ### Backend
-- [] Implementação de uma busca por Agenda
+- [ ] Implementação de uma busca por Agenda
 - [X] Construção de uma api com crud
-- [] Construção de uma authenticação ( Sessão )
-- [] Implementação de um serviço para o esqueci minha senha
-- [] Construção dos modelos do banco de dados
+- [ ] Construção de uma authenticação ( Sessão )
+- [ ] Implementação de um serviço para o esqueci minha senha
+- [ ] Construção dos modelos do banco de dados
