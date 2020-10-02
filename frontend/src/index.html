@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <title>TaskFlow</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1 class="titulo">Criar Conta</h1>
+          <span class="subtitulo">Crie uma conta agora mesmo na nossa plataforma.</span>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="sing-up-nome" placeholder="Name" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="sing-up-email" placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="sing-up-password" placeholder="Password" />
+          </div>
+
+          <button  onclick="registerUser(), clearFieldSingUp()">Criar</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1 class="titulo">Entrar</h1>
+          <span class="subtitulo">Entre com sua conta cadastrada.</span>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="email" id="sing-in-email" placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="sing-in-password" placeholder="Senha" />
+          </div>
+          <a href="#">Esqueceu sua senha?</a>
+          <button onclick="authenticateUser(), clearFieldSingIn() ">Entrar</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1 class="titulo-banner">Bem Vindo</h1>
+            <p class="subtitulo-banner">Ja possui conta?</p>
+            <button class="ghost" id="signIn">Entrar</button>
+            <p class="marca">TaskFlow</p>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1 class="titulo-banner">Opa, novato</h1>
+            <p class="subtitulo-banner">Crie sua conta de forma rapida e simples</p>
+            <button class="ghost" id="signUp">Criar</button>
+            <p class="marca">TaskFlow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+  <script src="../services/serviceAuth.js"></script>
+  <script src="../services/serviceUser.js"></script>
+</html>
