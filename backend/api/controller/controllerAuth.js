@@ -70,6 +70,12 @@ module.exports = class controllerAuth {
         return res.status(400).send({
           error: "Nome invalido!"
         })
+        
+      if (!email)
+        return res.status(400).send({
+          error: "Email invalido!"
+        })
+
 
       if (!password)
         return res.status(400).send({

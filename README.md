@@ -9,6 +9,13 @@ respectivamente. A bolinha determina se é uma agenda.
 A implementação da comunicação com o backend foi usado o axios para requisições http. Ela foi divida em modulos,
 o qual existe uma pasta de serivces para a o facil entendimento de gerenciamento de todos os endpoints da api.
 
+### Execução do projeto em desenvolvimento ( lite-server )
+__OBS: Caso a sua porta 8080 ja esteja sendo usada apenas mudar no arquivo bs-config.json a PORT__
+```
+  npm run dev 
+```
+
+
 
 ## Backend
 A implementação foi feita em nodejs.

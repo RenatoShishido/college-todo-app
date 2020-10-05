@@ -1,9 +1,9 @@
 var listUsers = []
 
-getUserAccount = async () => { 
+const getUserAccount = async () => {
   try {
-    
-    listUsers =  await axios.get("http://localhost:3000/user")
+
+    listUsers = await axios.get("http://localhost:3000/user")
 
     return listUsers
 
@@ -12,13 +12,12 @@ getUserAccount = async () => {
   }
 }
 
-getUserId = async (id) => { 
+const getUserId = async (id) => {
   try {
-    
+
     return await axios.get("http://localhost:3000/user")
 
   } catch (error) {
     console.log(error)
   }
 }
-
