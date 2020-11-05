@@ -25,6 +25,18 @@ module.exports = class serviceUser {
       }
     }
   }
+  static async registerUser(user){
+    try {
+      
+      return await User.create(user)
+
+    } catch (error) {
+      throw {
+        errorUser: "Erro ao registrar um usuario",
+        error: error
+      }
+    }
+  }
   static async updateUser(id, user){
     try {
       

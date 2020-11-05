@@ -59,11 +59,11 @@ Para mudar a conexão com o banco de dados voce ira mudar o login e a senha junt
 - [ ] Implementação de uma navBar
 - [ ] Implementação de um navDrag/sideBar
 - [ ] Implementação da das telas do navDrag (Todos, Não inciado, Em andamento, Finalizado, Listas)
-- [ ] Implementação das services de comunicação com a api
+- [X] Implementação das services de comunicação com a api
 
 ### Backend
 - [ ] Implementação de uma busca por Agenda
 - [X] Construção de uma api com crud
-- [ ] Construção de uma authenticação ( Sessão )
+- [X] Construção de uma authenticação ( Sessão )
 - [ ] Implementação de um serviço para o esqueci minha senha
-- [ ] Construção dos modelos do banco de dados
+- [X] Construção dos modelos do banco de dados
