@@ -1,5 +1,5 @@
 const controllerTask = require('../controller/controllerTask')
-
+const middlewareAuth = require('../middleware/authenticate')
 module.exports = class TaskRouter {
   constructor(app) {
     app.route('/tarefas')
@@ -10,8 +10,5 @@ module.exports = class TaskRouter {
       .get(controllerTask.getTaskId)
       .delete(controllerTask.removeTask)
       .put(controllerTask.updateTask)
-
-
-
   }
 }
