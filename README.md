@@ -56,14 +56,14 @@ Para mudar a conexão com o banco de dados voce ira mudar o login e a senha junt
 
 ### Frontend
 - [X] Implementação das 3 telas superficiais (Login, Criar conta, Esqueci minha senha )
-- [ ] Implementação de uma navBar
-- [ ] Implementação de um navDrag/sideBar
-- [ ] Implementação da das telas do navDrag (Todos, Não inciado, Em andamento, Finalizado, Listas)
+- [X] Implementação de uma navBar
+- [X] Implementação de um navDrag/sideBar
+- [X] Implementação da das telas do navDrag (Todos, Não inciado, Em andamento, Finalizado, Listas)
 - [X] Implementação das services de comunicação com a api
 
 ### Backend
-- [ ] Implementação de uma busca por Agenda
+- [X] Implementação de uma busca por Agenda
 - [X] Construção de uma api com crud
 - [X] Construção de uma authenticação ( Sessão )
-- [ ] Implementação de um serviço para o esqueci minha senha
+- [X] Implementação de um serviço para o esqueci minha senha
 - [X] Construção dos modelos do banco de dados

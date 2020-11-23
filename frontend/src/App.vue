@@ -1,32 +1,79 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <v-app v-if="showError">
+      <Error />
+    </v-app>
+    <v-app v-else>
+      <Snackbar/>
+      <v-app v-if="showNav">
+      <NavBar />
+      <router-view />
+      </v-app>
+      <v-app v-else>
+      <router-view />
+      </v-app>
+    </v-app>
   </div>
 </template>
 
+<script>
+import Error from "./views/Error";
+import Snackbar from "./components/snackbar";
+import NavBar from "./components/NavBar";
+
+export default {
+  name: "App",
+  data: () => ({
+    location: ''
+  }),
+  components: {
+    Error,
+    NavBar,
+    Snackbar
+  },
+  beforeCreate() {
+    this.$store.dispatch("user/loadLoggedUser");
+  },
+  computed: {
+    showError() {
+      return this.$route.name == "Error";
+    },
+    showNav() {
+      return location.pathname !== '/';
+    }
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.verde-agua {
+  color: #52a199;
+}
+.project.Begin {
+  border-left: 8px solid red;
+}
+.project.Andamento {
+  border-left: 8px solid yellow;
+}
+.project.Finalizado {
+  border-left: 8px solid green;
+}
+.project.Lista {
+  border-left: 8px solid blue;
 }
 
-#nav {
-  padding: 30px;
+.zoom:hover {
+  -moz-transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
+  background: whitesmoke;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.bola-preta {
+  background-color: black;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

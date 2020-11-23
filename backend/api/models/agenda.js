@@ -8,6 +8,10 @@ titulo: {
 descricao: {
     type: String,
 },
+status: {
+    type: String,
+    default: "Agenda"
+},
 tasks: [{
     titulo: String,
 }],

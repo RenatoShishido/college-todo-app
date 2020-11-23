@@ -4,7 +4,67 @@ module.exports = class serviceTask {
   static async getTaskAll(){
     try {
       
-      return await Task.find()
+      return await Task.find().populate({path: 'user'})
+       
+    } catch (error) {
+      throw {
+        errorUser: "Erro ao achar uma tarefa",
+        error: error
+      }
+    }
+  }
+  static async getTaskBegin(){
+    try {
+      
+      return await Task.find().populate({path: 'user'})
+      .select({})
+      .where("status")
+      .equals("Begin")
+       
+    } catch (error) {
+      throw {
+        errorUser: "Erro ao achar uma tarefa",
+        error: error
+      }
+    }
+  }
+  static async getTaskAndamento(){
+    try {
+      
+      return await Task.find().populate({path: 'user'})
+      .select({})
+      .where("status")
+      .equals("Andamento")
+       
+    } catch (error) {
+      throw {
+        errorUser: "Erro ao achar uma tarefa",
+        error: error
+      }
+    }
+  }
+  static async getTaskFinalizado(){
+    try {
+      
+      return await Task.find().populate({path: 'user'})
+      .select({})
+      .where("status")
+      .equals("Finalizado")
+       
+    } catch (error) {
+      throw {
+        errorUser: "Erro ao achar uma tarefa",
+        error: error
+      }
+    }
+  }
+  static async getTaskLista(){
+    try {
+      
+      return await Task.find().populate({path: 'user'})
+      .select({})
+      .where("status")
+      .equals("Lista")
        
     } catch (error) {
       throw {
@@ -16,7 +76,7 @@ module.exports = class serviceTask {
   static async getTaskId(id){
     try {
       
-      return await Task.findById(id)
+      return await Task.findById(id).populate({path: 'user'})
 
     } catch (error) {
       throw {

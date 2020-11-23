@@ -1,6 +1,5 @@
 const express = require('express')
 const CORS = require('cors')
-const Loader = require('./api/loader')
 
 class Server {
   constructor() {
@@ -8,11 +7,10 @@ class Server {
     app.use(express.json())
     app.use(CORS())
 
-
     require('./api/db/db')
-    Loader.loadAll(app)
+    
 
-
+    require('./api/routes/index')(app)
 
 
     const PORT = 3000
