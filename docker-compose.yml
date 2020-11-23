@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+  portainer:
+    image: portainer/portainer
+    restart: always
+    container_name: portainer-progweb
+    ports: 
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/renatogroffe/Desenvolvimento/Portainer/data:/data
+    networks: 
+      network-database-progweb:
+        ipv4_address: 173.40.0.3
+  mongo:
+    image: mongo
+    container_name: mongo-database-progweb
+    ports:
+      - 27018:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: passwordRoot
+    networks:
+      network-database-progweb:
+        ipv4_address: 173.40.0.4
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express-interface-progweb
+    ports:
+      - 8082:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: passwordRoot
+      ME_CONFIG_OPTIONS_EDITORTHEME: ambiance 
+      ME_CONFIG_MONGODB_SERVER: 173.40.0.4
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: passwordRoot
+    depends_on: 
+      - mongo
+    networks:
+      network-database-progweb:
+        ipv4_address: 173.40.0.5
+
+networks:
+  network-database-progweb:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 173.40.0.0/24
