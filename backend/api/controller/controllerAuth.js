@@ -58,7 +58,11 @@ module.exports = class controllerAuth {
         nome,
         password
       } = req.body
-
+      
+      if (!nome && !email && !password)
+      return res.status(400).send({
+        error: "Usuario invalido, precisa preencher os campos"
+      })
       if (await User.findOne({
           email
         }))
@@ -66,20 +70,24 @@ module.exports = class controllerAuth {
           error: "Este Email ja foi cadastrado, tente novamente"
         })
 
+      if (/.+@.+/.test(email) === false)
+        return res.status(400).send({
+          error: "Email invalido!"
+        })
       if (!nome)
         return res.status(400).send({
-          error: "Nome invalido!"
+          error: "Necessario preencher o campo Nome!"
         })
         
       if (!email)
         return res.status(400).send({
-          error: "Email invalido!"
+          error: "Necessario preencher o campo Email!"
         })
 
 
       if (!password)
         return res.status(400).send({
-          error: "Senha invalida"
+          error: "Necessario preencher o campo Senha!"
         })
 
       const user = await serviceUser.registerUser(req.body)

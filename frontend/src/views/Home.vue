@@ -7,13 +7,13 @@
           <span class="subtitle">Entre com sua conta cadastrada </span>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" v-model="fields_login.email" placeholder="Email" id="sing-in-email" />
+            <input type="email" v-model="fields_login.email" placeholder="Email" id="sing-in-email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input type="password" @keypress.enter="enviar()" v-model="fields_login.password" placeholder="Senha" id="sing-in-password" />
           </div>
-          <button class="btn" :loading="loading" @click="enviar()">Entrar</button>
+          <button class="btn" :loading="loading" @click="enviar()" >Entrar</button>
         </section>
         <section class="sign-up-form">
           <h2 class="title">Criar Conta</h2>
@@ -87,7 +87,7 @@ export default {
         this.fields = {};
       } catch (error) {
         this.$store.dispatch("snackbar/show", {
-          content: error,
+          content: error.error,
           color: "error"
         });
         this.fields_register = {};
@@ -109,7 +109,7 @@ export default {
 
       } catch (error) {
         this.$store.dispatch("snackbar/show", {
-          content: error,
+          content: error.error,
           color: "error"
         });
       }

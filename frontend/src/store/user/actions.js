@@ -12,11 +12,7 @@ export default {
       else
         commit('loggout')
     } catch (error) {
-
-      throw {
-        error: error,
-        message: `store/user/actions->loadLoggedUser():<<${error}>>`
-      }
+      throw  error.response.data  
     }
   },
   async chargeLoginUser({
@@ -31,10 +27,7 @@ export default {
         commit("setLoggedUser", user)
 
     } catch (error) {
-      throw {
-        error: error.error,
-        message: `store/user/actions->chargeLoginUser():<<${error}>>`
-      }
+      throw  error.response.data  
     }
   },
   async registerUser({
@@ -45,10 +38,7 @@ export default {
       commit
 
     } catch (error) {
-      throw {
-        error: error.error,
-        message: `store/user/actions->registerUser():<<${error}>>`
-      }
+      throw  error.response.data  
     }
   },
   logoutUser({
@@ -58,10 +48,7 @@ export default {
       commit('loggout')
 
     } catch (error) {
-      throw {
-        error: error.error,
-        message: `store/user/actions->logoutUser():<<${error}>>`
-      }
+      throw  error.response.data  
     }
   }
 }
